@@ -25,3 +25,14 @@ jobs:
         with:
           name: release-apk
           path: build/app/outputs/apk/release/app-release.apk
+
+      - name: Send notification to Slack
+        uses: jkachmar/slack@v1
+        with:
+          slackWebhookUrl: ${{ secrets.SLACK_WEBHOOK }}
+          # Set the message text
+          message: "The Flutter workflow has completed"
+          # Set the channel to send the message to (optional)
+          channel: "#my-channel"
+          # Attach the APK file to the message
+          attachments: build/app/outputs/apk/release/app-release.apk
