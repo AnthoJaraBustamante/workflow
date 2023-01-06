@@ -4,7 +4,7 @@ on: [push, workflow_dispatch]
 jobs:
   build:
     runs-on: macos-latest
-    if: equals(toLower(github.event.head_commit.message), 'build')
+    if: toLower(github.event.head_commit.message) in toLower('build')
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
