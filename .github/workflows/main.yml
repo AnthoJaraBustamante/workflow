@@ -16,7 +16,10 @@ jobs:
 
 
       - name: Install dependencies
-        run: flutter pub get; flutter build apk
+        run: flutter pub get
+
+      - name: 'Build APK'
+        run: flutter build apk
 
       - name: Upload APK
         uses: actions/upload-artifact@v3
